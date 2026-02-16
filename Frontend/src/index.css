@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: antiquewhite;
+}
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Body */
+
+
+nav {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  
+}
+
+button {
+  border:ridge;
+  cursor:pointer;
+  color: rgb(11, 11, 11);
+}
+
+button:hover{
+  color: blue;
+}
+a {
+  color: black;
+}
+
+a:hover{
+  color:blue;
+}
+
+input, select {
+  margin: 5px;
+  padding: 5px;
+}
+
