@@ -10,7 +10,7 @@ import AdminDashboard from "./pages/admin/AdminDashboard";
 import AssetManagement from "./pages/admin/AssetManagement";
 import Requests from "./pages/admin/Requests";
 import ReturnTracking from "./pages/admin/ReturnTracking";
-
+import Home from "./pages/Home";
 import UserDashboard from "./pages/user/Dashboard";
 import AvailableAssets from "./pages/user/AvailableAssets";
 import MyRequests from "./pages/user/MyRequests";
@@ -19,8 +19,10 @@ function App() {
   return (
     <AuthProvider>
       <BrowserRouter>
+      
         <Navbar />
        <Routes>
+        <Route path="/" element={<Home />} />
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
 

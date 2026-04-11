@@ -23,21 +23,49 @@ export default function Requests() {
     fetchRequests();
   };
 
-  return (
-    <div>
-      <h2>Requests</h2>
-      {requests.map((r) => (
-        <div key={r._id}>
-          {r.user?.name} - {r.asset?.device_name} - {r.status}
+ return (
+  <div className="p-10">
+    <h2 className="text-2xl font-bold mb-6">Requests</h2>
 
-          {r.status === "pending" && (
-            <>
-              <button onClick={() => approve(r._id)}>Approve</button>
-              <button onClick={() => reject(r._id)}>Reject</button>
-            </>
-          )}
-        </div>
-      ))}
+    <div className="bg-white shadow rounded-lg overflow-hidden">
+      <table className="w-full">
+        <thead className="bg-slate-100">
+          <tr>
+            <th className="p-3 text-left">User</th>
+            <th className="p-3 text-left">Asset</th>
+            <th className="p-3 text-left">Status</th>
+            <th className="p-3 text-left">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {requests.map((r) => (
+            <tr key={r._id} className="border-t">
+              <td className="p-3">{r.user?.name}</td>
+              <td className="p-3">{r.asset?.device_name}</td>
+              <td className="p-3 capitalize">{r.status}</td>
+              <td className="p-3 space-x-2">
+                {r.status === "pending" && (
+                  <>
+                    <button
+                      onClick={() => approve(r._id)}
+                      className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                    >
+                      Approve
+                    </button>
+                    <button
+                      onClick={() => reject(r._id)}
+                      className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                    >
+                      Reject
+                    </button>
+                  </>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  );
+  </div>
+);
 }

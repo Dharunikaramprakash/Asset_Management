@@ -30,21 +30,39 @@ export default function Login() {
       alert(res.data);
     }
   };
+return (
+  <div className="min-h-screen flex items-center justify-center bg-slate-100">
+    <form
+      onSubmit={handleSubmit}
+      className="bg-white p-8 rounded-xl shadow-lg w-96 space-y-4"
+    >
+      <h2 className="text-2xl font-bold text-center">Login</h2>
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input placeholder="Email"
+      <input
+        className="w-full border p-2 rounded"
+        placeholder="Email"
         onChange={(e) => setForm({ ...form, email: e.target.value })}
       />
-      <input type="password" placeholder="Password"
+
+      <input
+        type="password"
+        className="w-full border p-2 rounded"
+        placeholder="Password"
         onChange={(e) => setForm({ ...form, password: e.target.value })}
       />
-      <select onChange={(e) => setForm({ ...form, role: e.target.value })}>
+
+      <select
+        className="w-full border p-2 rounded"
+        onChange={(e) => setForm({ ...form, role: e.target.value })}
+      >
         <option value="employee">Employee</option>
         <option value="admin">Admin</option>
       </select>
-      <button type="submit">Login</button>
+
+      <button className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700">
+        Login
+      </button>
     </form>
-  );
+  </div>
+);
 }
